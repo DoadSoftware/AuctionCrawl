@@ -615,7 +615,7 @@ public class ISPL extends Scene{
 				print_writer.println("LAYER" + current_layer + "*EVEREST*TREEVIEW*Scroller-MAIN*GEOMETRY*SCROLLER SET DATA " +pricesSold+"\nD1|TextInfo=" + "PURSE REMAINING" +Purse+";");
 	
 			}else if(data.equalsIgnoreCase("SOLD") && data2.equalsIgnoreCase("TOP")) {
-				print_writer.println("LAYER" + current_layer + "*EVEREST*TREEVIEW*Scroller-MAIN*GEOMETRY*SCROLLER SET DATA " +pricesSold+ "\nD1|TextInfo=" +String.format("%20s","TOP BUYS")+TopSold+";");
+				print_writer.println("LAYER" + current_layer + "*EVEREST*TREEVIEW*Scroller-MAIN*GEOMETRY*SCROLLER SET DATA " +pricesSold+ "\nD1|TextInfo=" + "TOP BUYS" + TopSold+";");
 
 			}else if(data.equalsIgnoreCase("SOLD") && data2.equalsIgnoreCase("NOTSELECTED")) {
 				print_writer.println("LAYER" + current_layer + "*EVEREST*TREEVIEW*Scroller-MAIN*GEOMETRY*SCROLLER SET DATA " +pricesSold+";");
@@ -624,19 +624,19 @@ public class ISPL extends Scene{
 				print_writer.println("LAYER" + current_layer + "*EVEREST*TREEVIEW*Scroller-MAIN*GEOMETRY*SCROLLER SET DATA "+ "D1|TextInfo=" + "PURSE REMAINING" +Purse+";");
 
 			}else if(data.equalsIgnoreCase("PURSE") && data2.equalsIgnoreCase("TOP")) {
-				print_writer.println("LAYER" + current_layer + "*EVEREST*TREEVIEW*Scroller-MAIN*GEOMETRY*SCROLLER SET DATA "+ "D1|TextInfo=" + "PURSE REMAINING" +Purse+ "\nD1|TextInfo=" + String.format("%20s","TOP BUYS")+TopSold+";");
+				print_writer.println("LAYER" + current_layer + "*EVEREST*TREEVIEW*Scroller-MAIN*GEOMETRY*SCROLLER SET DATA "+ "D1|TextInfo=" + "PURSE REMAINING" +Purse+ "\nD1|TextInfo=" + "TOP BUYS" + TopSold + ";");
 
 			}else if(data.equalsIgnoreCase("PURSE") && data2.equalsIgnoreCase("SOLD")) {
 				print_writer.println("LAYER" + current_layer + "*EVEREST*TREEVIEW*Scroller-MAIN*GEOMETRY*SCROLLER SET DATA "+ "D1|TextInfo=" + "PURSE REMAINING" +Purse+ "\n" + pricesSold + ";");
 
 			}else if(data.equalsIgnoreCase("TOP") && data2.equalsIgnoreCase("NOTSELECTED")) {
-				print_writer.println("LAYER" + current_layer + "*EVEREST*TREEVIEW*Scroller-MAIN*GEOMETRY*SCROLLER SET DATA "+ "D1|TextInfo="+ String.format("%20s","TOP BUYS")+TopSold+";");
+				print_writer.println("LAYER" + current_layer + "*EVEREST*TREEVIEW*Scroller-MAIN*GEOMETRY*SCROLLER SET DATA "+ "D1|TextInfo=" + "TOP BUYS" + TopSold + ";");
 				
 			}else if(data.equalsIgnoreCase("TOP") && data2.equalsIgnoreCase("PURSE")) {
-				print_writer.println("LAYER" + current_layer + "*EVEREST*TREEVIEW*Scroller-MAIN*GEOMETRY*SCROLLER SET DATA "+ "D1|TextInfo=" +String.format("%20s","TOP BUYS")+TopSold+ "\nD1|TextInfo="+ "PURSE REMAINING"  +Purse+";");
+				print_writer.println("LAYER" + current_layer + "*EVEREST*TREEVIEW*Scroller-MAIN*GEOMETRY*SCROLLER SET DATA "+ "D1|TextInfo=" + "TOP BUYS" + TopSold+ "\nD1|TextInfo="+ "PURSE REMAINING"  +Purse+";");
 
 			}else if(data.equalsIgnoreCase("TOP") && data2.equalsIgnoreCase("SOLD")) {
-				print_writer.println("LAYER" + current_layer + "*EVEREST*TREEVIEW*Scroller-MAIN*GEOMETRY*SCROLLER SET DATA "+ "D1|TextInfo="+String.format("%20s","TOP BUYS")+TopSold+ "\n" + pricesSold + ";");
+				print_writer.println("LAYER" + current_layer + "*EVEREST*TREEVIEW*Scroller-MAIN*GEOMETRY*SCROLLER SET DATA "+ "D1|TextInfo=" + "TOP BUYS" + TopSold + "\n" + pricesSold + ";");
 
 			}	
 		}
