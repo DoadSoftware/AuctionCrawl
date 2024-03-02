@@ -198,17 +198,13 @@ public class IndexController
 			case "HANDBALL": case "ISPL":
 				return JSONArray.fromObject(auctionService.getAllPlayer()).toString();
 			}
-		case "SQUAD_GRAPHICS-OPTIONS": case "SINGLE_PURSE_GRAPHICS-OPTIONS":
+		case "SQUAD_GRAPHICS-OPTIONS": case "SINGLE_PURSE_GRAPHICS-OPTIONS": case "SQUAD-ROLE-COUNT_GRAPHICS-OPTIONS":
+		case "ZONE_GRAPHICS-OPTIONS":	
 			switch (session_selected_broadcaster.toUpperCase()) {
 			case "HANDBALL": case "ISPL":
 				return JSONArray.fromObject(auctionService.getTeams()).toString();
 			}
-		case "NAMESUPER_GRAPHICS-OPTIONS": 
-			switch (session_selected_broadcaster.toUpperCase()) {
-//			case "DOAD_IN_HOUSE_EVEREST": case "DOAD_IN_HOUSE_VIZ":
-//				namesuper = cricketService.getNameSupers();
-//				return JSONArray.fromObject(namesuper).toString();
-			}
+			
 		case "READ-MATCH-AND-POPULATE":
 			
 			session_auction = new ObjectMapper().readValue(new File(AuctionUtil.AUCTION_DIRECTORY + "AUCTION.JSON"), Auction.class);

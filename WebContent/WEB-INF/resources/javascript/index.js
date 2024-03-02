@@ -60,9 +60,15 @@ function processUserSelection(whichInput)
 	case 'remaining_purse_graphic_btn':
 		processAuctionProcedures('POPULATE-REMAINING_PURSE_ALL');
 		break;
+	case 'remaining_purse_all_graphic_btn':
+		processAuctionProcedures('POPULATE-REMAINING_PURSE');
+		break;
+	case 'squad_all_graphic_btn':
+		processAuctionProcedures('POPULATE-SQUAD_ALL');
+		break;	
 		
 	case 'playerprofile_graphic_btn': case 'squad_graphic_btn': case 'remaining_purse_single_graphic_btn': case 'crawler_graphic_btn':
-	
+	case 'zone_graphic_btn': case 'squad_with_role_count_graphic_btn':
 		$("#captions_div").hide();
 		$("#cancel_match_setup_btn").hide();
 		$("#expiry_message").hide();
@@ -80,12 +86,19 @@ function processUserSelection(whichInput)
 			break;
 		case 'crawler_graphic_btn':
 			addItemsToList('CRAWLER-OPTIONS',null);
-			break;	
+			break;
+		case 'squad_with_role_count_graphic_btn':
+			processAuctionProcedures('SQUAD-ROLE-COUNT_GRAPHICS-OPTIONS');
+			break;
+		case 'zone_graphic_btn':
+			processAuctionProcedures('ZONE_GRAPHICS-OPTIONS');
+			break;		
 		}
 		break;
 		
 	case 'populate_namesuper_btn': case 'populate_namesuper_player_btn': case 'populate_playerprofile_btn':	case 'populate_squad_btn':
-	case 'populate_single_purse_btn': case 'populate_crawl_btn': case 'free_Text_graphic_btn':
+	case 'populate_single_purse_btn': case 'populate_crawl_btn': case 'free_Text_graphic_btn': //case 'remaining_purse_graphic_btn':
+	case 'populate_zone_btn': case 'populate_squad_role_btn':
 		processWaitingButtonSpinner('START_WAIT_TIMER');
 		switch ($(whichInput).attr('name')) {
 		case 'populate_namesuper_btn':
@@ -109,6 +122,15 @@ function processUserSelection(whichInput)
 		case 'free_Text_graphic_btn':
 			processAuctionProcedures('POPULATE-CRAWL_FREE_TEXT');
 			break;	
+		//case 'remaining_purse_graphic_btn':
+			//processAuctionProcedures('POPULATE-REMAINING_PURSE_ALL');
+			//break;
+		case 'populate_squad_role_btn':
+			processAuctionProcedures('POPULATE-SQUAD_ROLE');
+			break;
+		case 'populate_zone_btn':
+			processAuctionProcedures('POPULATE-ZONE');
+			break;			
 		}
 		break;
 	case 'cancel_match_setup_btn':
@@ -161,6 +183,53 @@ function processAuctionProcedures(whatToProcess)
 	case 'READ-MATCH-AND-POPULATE':
 		valueToProcess = $('#matchFileTimeStamp').val();
 		break;
+	case 'POPULATE-SQUAD_ALL':
+			switch ($('#selected_broadcaster').val().toUpperCase()) {
+			case 'ISPL':
+				valueToProcess = 'D:/DOAD_In_House_Everest/Everest_Cricket/Everest_ISPL_Auction_2024/Scenes/ROF_2Rows_6Cols.sum' ;
+				break;	
+			}
+			break;
+	case 'POPULATE-REMAINING_PURSE':
+		switch ($('#selected_broadcaster').val().toUpperCase()) {
+		case 'HANDBALL':
+			valueToProcess = 'D:/DOAD_In_House_Everest/Everest_Sports/Everest_Handball_Auction_2023/Scenes/PlayerProfile_Pic.sum' + ',' + $('#selectPlayerName option:selected').val();
+			break;
+		case 'ISPL':
+			valueToProcess = 'D:/DOAD_In_House_Everest/Everest_Cricket/Everest_ISPL_Auction_2024/Scenes/ROF_2Rows_6Cols.sum';
+			break;
+		}
+		break;
+	case 'POPULATE-SQUAD_ROLE':
+		switch ($('#selected_broadcaster').val().toUpperCase()) {
+		case 'HANDBALL':
+			valueToProcess = 'D:/DOAD_In_House_Everest/Everest_Sports/Everest_Handball_Auction_2023/Scenes/PlayerProfile_Pic.sum' + ',' + $('#selectPlayerName option:selected').val();
+			break;
+		case 'ISPL':
+			valueToProcess = 'D:/DOAD_In_House_Everest/Everest_Cricket/Everest_ISPL_Auction_2024/Scenes/ROF_4Rows_2Cols.sum' + ',' + $('#selectTeamName option:selected').val();
+			break;
+		}
+		break;
+	case 'POPULATE-ZONE':
+		switch ($('#selected_broadcaster').val().toUpperCase()) {
+		case 'HANDBALL':
+			valueToProcess = 'D:/DOAD_In_House_Everest/Everest_Sports/Everest_Handball_Auction_2023/Scenes/PlayerProfile_Pic.sum' + ',' + $('#selectPlayerName option:selected').val();
+			break;
+		case 'ISPL':
+			valueToProcess = 'D:/DOAD_In_House_Everest/Everest_Cricket/Everest_ISPL_Auction_2024/Scenes/ROF_2Rows_6Cols.sum' + ',' + $('#selectTeamName option:selected').val();
+			break;
+		}
+		break;		
+	case 'POPULATE-REMAINING_PURSE_ALL':
+		switch ($('#selected_broadcaster').val().toUpperCase()) {
+		case 'HANDBALL':
+			valueToProcess = 'D:/DOAD_In_House_Everest/Everest_Sports/Everest_Handball_Auction_2023/Scenes/RemainingPurse_All.sum' ;
+			break;
+		case 'ISPL':
+			valueToProcess = 'D:/DOAD_In_House_Everest/Everest_Cricket/Everest_ISPL_Auction_2024/Scenes/ROF_3Rows_6Cols.sum';
+			break;	
+		}
+		break;	
 	case 'POPULATE-FF-PLAYERPROFILE':
 		switch ($('#selected_broadcaster').val().toUpperCase()) {
 		case 'HANDBALL':
@@ -216,16 +285,6 @@ function processAuctionProcedures(whatToProcess)
 			break;	
 		}
 		break;
-	case 'POPULATE-REMAINING_PURSE_ALL':
-		switch ($('#selected_broadcaster').val().toUpperCase()) {
-		case 'HANDBALL':
-			valueToProcess = 'D:/DOAD_In_House_Everest/Everest_Sports/Everest_Handball_Auction_2023/Scenes/RemainingPurse_All.sum' ;
-			break;
-		case 'ISPL':
-			valueToProcess = 'D:/DOAD_In_House_Everest/Everest_Cricket/Everest_ISPL_Auction_2024/Scenes/RemainingPurse_All.sum' ;
-			break;	
-		}
-		break;
 	
 	}
 
@@ -272,15 +331,38 @@ function processAuctionProcedures(whatToProcess)
 				addItemsToList('POPULATE-TEAM',data);
 				match_data = data;
 				break;
+			case 'SQUAD-ROLE-COUNT_GRAPHICS-OPTIONS':
+				addItemsToList('SQUAD-ROLE-COUNT-OPTIONS',data);
+				addItemsToList('POPULATE-TEAM',data);
+				match_data = data;
+				break;
+			case 'ZONE_GRAPHICS-OPTIONS':
+				addItemsToList('ZONE-OPTIONS',data);
+				addItemsToList('POPULATE-TEAM',data);
+				match_data = data;
+				break;		
 			
 			case 'POPULATE-FF-PLAYERPROFILE': case 'POPULATE-SQUAD': case 'POPULATE-REMAINING_PURSE_ALL': case 'POPULATE-SINGLE_PURSE': case 'POPULATE-TOP_SOLD':
-			case 'POPULATE-CRAWL': case 'POPULATE-CRAWL_FREE_TEXT':
+			case 'POPULATE-CRAWL': case 'POPULATE-CRAWL_FREE_TEXT': case 'POPULATE-SQUAD_ROLE': case 'POPULATE-ZONE': case 'POPULATE-REMAINING_PURSE':
+			case 'POPULATE-SQUAD_ALL':
 				if(confirm('Animate In?') == true){
 					$('#select_graphic_options_div').empty();
 					document.getElementById('select_graphic_options_div').style.display = 'none';
 					$("#captions_div").show();
 					
 		        	switch(whatToProcess) {
+					case 'POPULATE-SQUAD_ALL':
+						processAuctionProcedures('ANIMATE-IN-SQUAD_ALL');	
+						break;
+					case 'POPULATE-REMAINING_PURSE':
+						processAuctionProcedures('ANIMATE-IN-REMAINING_PURSE');	
+						break;
+					case 'POPULATE-SQUAD_ROLE':
+						processAuctionProcedures('ANIMATE-IN-SQUAD_ROLE');	
+						break;
+					case 'POPULATE-ZONE':
+						processAuctionProcedures('ANIMATE-IN-ZONE');	
+						break;	
 					case 'POPULATE-CRAWL_FREE_TEXT':
 						processAuctionProcedures('ANIMATE-IN-CRAWL_FREE_TEXT');				
 						break;
@@ -466,7 +548,7 @@ function addItemsToList(whatToProcess, dataToProcess)
 		}
 		break;	
 	case'NAMESUPER-OPTIONS': case 'NAMESUPER_PLAYER-OPTIONS':  case'PLAYERPROFILE-OPTIONS': case 'SQUAD-OPTIONS': case 'SINGLE_PURSE-OPTIONS':
-	
+	case 'SQUAD-ROLE-COUNT-OPTIONS': case 'ZONE-OPTIONS':
 		switch ($('#selected_broadcaster').val().toUpperCase()) {
 		case 'HANDBALL': case 'ISPL':
 
@@ -501,7 +583,7 @@ function addItemsToList(whatToProcess, dataToProcess)
 						break;
 					}
 					break;
-				case 'SQUAD-OPTIONS':
+				case 'SQUAD-OPTIONS': case 'SQUAD-ROLE-COUNT-OPTIONS': case 'ZONE-OPTIONS':
 					switch ($('#selected_broadcaster').val().toUpperCase()) {
 						case 'HANDBALL': case 'ISPL':
 							select = document.createElement('select');
@@ -646,6 +728,14 @@ function addItemsToList(whatToProcess, dataToProcess)
 			    option.name = 'populate_squad_btn';
 			    option.value = 'Populate Squad';
 				break;
+			case 'SQUAD-ROLE-COUNT-OPTIONS':
+				option.name = 'populate_squad_role_btn';
+			    option.value = 'Populate Squad role';
+				break;
+			case 'ZONE-OPTIONS':
+				option.name = 'populate_zone_btn';
+			    option.value = 'Populate Zone';
+				break;		
 			case 'SINGLE_PURSE-OPTIONS':
 				option.name = 'populate_single_purse_btn';
 			    option.value = 'Populate Single Purse';

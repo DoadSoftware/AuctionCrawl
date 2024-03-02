@@ -56,6 +56,21 @@
 			  	<button style="background-color:#2E008B;color:#FEFEFE;" class="btn btn-sm" type="button"
 			  		name="free_Text_graphic_btn" id="free_Text_graphic_btn" onclick="processUserSelection(this)"> FREE TEXT </button>			
 			  	
+			  	<button style="background-color:#2E008B;color:#FEFEFE;" class="btn btn-sm" type="button"
+			  		name="remaining_purse_graphic_btn" id="remaining_purse_graphic_btn" onclick="processUserSelection(this)"> Remaining Purse With Squad Size  </button>
+			  	
+			  	<button style="background-color:#2E008B;color:#FEFEFE;" class="btn btn-sm" type="button"
+			  		name="remaining_purse_all_graphic_btn" id="remaining_purse_all_graphic_btn" onclick="processUserSelection(this)"> Remaining Purse </button>
+			  	
+			  	<button style="background-color:#2E008B;color:#FEFEFE;" class="btn btn-sm" type="button"
+			  		name="zone_graphic_btn" id="zone_graphic_btn" onclick="processUserSelection(this)"> Zone </button>	
+			  		
+			  	<button style="background-color:#2E008B;color:#FEFEFE;" class="btn btn-sm" type="button"
+			  		name="squad_all_graphic_btn" id="squad_all_graphic_btn" onclick="processUserSelection(this)"> Squad All </button>
+
+				<button style="background-color:#2E008B;color:#FEFEFE;" class="btn btn-sm" type="button"
+			  		name="squad_with_role_count_graphic_btn" id="squad_with_role_count_graphic_btn" onclick="processUserSelection(this)"> Squad with role count </button>
+			  		
 			  	</div>	
 			  	<div class="left">
 			  	<button style="background-color:#f44336;color:#FEFEFE;" class="btn btn-sm" type="button"
